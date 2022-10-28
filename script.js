@@ -33,7 +33,8 @@ function drawSkillsTable(data) {
 
   data.forEach((itemData) => {
     const id = document.createElement("td");
-    id.textContent = itemData.id;
+    // id.textContent = itemData.id;
+    id.textContent = (Math.random() + 1).toString(36).substring(7);
 
     const skill = document.createElement("td");
     skill.textContent = itemData.skill;
@@ -58,6 +59,7 @@ async function deleteItems(url) {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
+      alert("Skill deleted successfully");
       window.location.reload();
       // create new array
       newSkillsArray = await getSkillsData(BASE_URL);
