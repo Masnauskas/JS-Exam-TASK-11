@@ -1,4 +1,4 @@
-const BASE_URL = "https://melon-potent-period.glitch.me";
+const BASE_URL = "https://melon-potent-period.glitch.me/skills";
 
 const submitBtn = document.getElementById("submit-btn");
 const h1Element = document.getElementById("unsuccessful-message");
@@ -40,3 +40,9 @@ submitBtn.addEventListener("click", (event) => {
 
   postData(BASE_URL);
 });
+
+document
+  .getElementById("see-skills-table-page")
+  .addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });

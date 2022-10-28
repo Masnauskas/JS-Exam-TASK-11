@@ -1,6 +1,6 @@
-// const BASE_URL = "https://melon-potent-period.glitch.me";
+const BASE_URL = "https://melon-potent-period.glitch.me/skills";
 
-const BASE_URL = "https://zany-skitter-caper.glitch.me/skills";
+// const BASE_URL = "https://zany-skitter-caper.glitch.me/skills";
 
 async function getSkillsData(url) {
   try {
@@ -29,23 +29,32 @@ async function drawSkillsFromURL(url) {
   }
 }
 
+function capitalizeEachFirstLetter(input) {
+  const words = input.split(" ");
+  return words
+    .map((word) => {
+      return word[0].toUpperCase() + word.substring(1);
+    })
+    .join(" ");
+}
+
 function drawSkillsTable(data) {
   const table = document.querySelector("table");
   const tbody = document.querySelector("tbody");
+  tbody.innerHTML = "";
 
   data.forEach((itemData) => {
     const id = document.createElement("td");
-    // id.textContent = itemData.id;
-    id.textContent = (Math.random() + 1).toString(36).substring(7);
+    id.textContent = itemData.id;
 
     const skill = document.createElement("td");
-    skill.textContent = itemData.title;
+    skill.textContent = capitalizeEachFirstLetter(itemData.skill);
 
     const deleteBtn = document.createElement("td");
     deleteBtn.textContent = "delete";
     deleteBtn.classList.add("delete-btn");
     deleteBtn.addEventListener("click", () => {
-      deleteItems(BASE_URL + "/" + dataItem.id);
+      deleteItems("https://melon-potent-period.glitch.me/skill/" + itemData.id);
     });
 
     const tr = document.createElement("tr");
@@ -62,7 +71,7 @@ async function deleteItems(url) {
     });
     if (response.ok) {
       alert("Skill deleted successfully");
-      window.location.reload();
+      setTimeout("location.reload(true);", 400);
 
       newSkillsArray = await getSkillsData(BASE_URL);
 
@@ -73,5 +82,9 @@ async function deleteItems(url) {
     alert(error);
   }
 }
+
+document.getElementById("see-add-skills-page").addEventListener("click", () => {
+  window.location.href = "./add.html";
+});
 
 drawSkillsFromURL(BASE_URL);
