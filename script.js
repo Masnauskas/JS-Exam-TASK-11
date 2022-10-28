@@ -41,7 +41,6 @@ function capitalizeEachFirstLetter(input) {
 function drawSkillsTable(data) {
   const table = document.querySelector("table");
   const tbody = document.querySelector("tbody");
-  tbody.innerHTML = "";
 
   data.forEach((itemData) => {
     const id = document.createElement("td");
@@ -71,11 +70,11 @@ async function deleteItems(url) {
     });
     if (response.ok) {
       alert("Skill deleted successfully");
-      setTimeout("location.reload(true);", 400);
+      //   setTimeout("location.reload(true);", 400);
+      location.reload(true);
+      //   newSkillsArray = await getSkillsData(BASE_URL);
 
-      newSkillsArray = await getSkillsData(BASE_URL);
-
-      drawSkillsTable(newSkillsArray);
+      //   drawSkillsTable(newSkillsArray);
     }
   } catch (error) {
     console.error(error);
