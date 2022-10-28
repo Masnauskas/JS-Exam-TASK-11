@@ -1,4 +1,6 @@
-const BASE_URL = "https://melon-potent-period.glitch.me";
+// const BASE_URL = "https://melon-potent-period.glitch.me";
+
+const BASE_URL = "https://zany-skitter-caper.glitch.me/skills";
 
 async function getSkillsData(url) {
   try {
@@ -37,7 +39,7 @@ function drawSkillsTable(data) {
     id.textContent = (Math.random() + 1).toString(36).substring(7);
 
     const skill = document.createElement("td");
-    skill.textContent = itemData.skill;
+    skill.textContent = itemData.title;
 
     const deleteBtn = document.createElement("td");
     deleteBtn.textContent = "delete";
@@ -61,9 +63,8 @@ async function deleteItems(url) {
     if (response.ok) {
       alert("Skill deleted successfully");
       window.location.reload();
-      // create new array
+
       newSkillsArray = await getSkillsData(BASE_URL);
-      // draw with new array
 
       drawSkillsTable(newSkillsArray);
     }
