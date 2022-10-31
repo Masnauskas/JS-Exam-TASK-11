@@ -1,14 +1,17 @@
+$background-color: rgb(32, 43, 56);
+$font-color: white;
+$delete-button-color: rgb(66, 122, 161);
+$error-message-color: red;
+$button-background-color: rgb(22, 31, 39);
 * {
   margin: 0;
   box-sizing: border-box;
 }
-
 #unsuccessful-message {
-  color: red;
+  color: $error-message-color;
 }
-
 body {
-  background-color: rgb(32, 43, 56);
+  background-color: $background-color;
 }
 
 .main-container {
@@ -20,8 +23,8 @@ body {
 #see-add-skills-page,
 #see-skills-table-page,
 #submit-btn {
-  background-color: rgb(22, 31, 39);
-  color: white;
+  background-color: $button-background-color;
+  color: $font-color;
   padding: 10px 20px;
   text-align: center;
   border-radius: 5px;
@@ -40,7 +43,6 @@ body {
   background-color: white;
   color: black;
 }
-
 #see-add-skills-page:hover {
   background-color: white;
   color: black;
@@ -49,36 +51,30 @@ body {
 #submit-btn {
   margin-top: 10px;
 }
-
 h1 {
-  color: white;
+  color: $font-color;
 }
-
 table {
   text-align: left;
-  color: white;
+  color: $font-color;
   border-collapse: collapse;
 }
 
 .delete-btn {
-  color: rgb(66, 122, 161);
+  color: $delete-button-color;
   cursor: pointer;
 }
-
 .delete-btn:hover {
-  color: red;
+  color: $error-message-color;
 }
-
 table thead {
   font-size: 20px;
 }
-
 thead th {
   padding: 5px 5px;
 }
-
 tbody tr:nth-child(even) {
-  background-color: rgb(22, 31, 39);
+  background-color: $button-background-color;
 }
 
 tbody td {
@@ -88,10 +84,10 @@ tbody td {
 input {
   width: 50%;
   padding: 5px 5px;
-  background-color: rgb(22, 31, 39);
+  background-color: $button-background-color;
   border-radius: 5px;
   border: none;
-  color: white;
+  color: $font-color;
 }
 
 @media screen and (max-width: 800px) {
@@ -105,34 +101,31 @@ input {
     font-size: 1.5em;
   }
 }
+// navigation
+
 nav a {
   text-decoration: none;
   color: white;
   margin-right: 10px;
 }
-
 nav a:hover {
   text-decoration: underline;
 }
-
 .navigation {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
 .navigation-title {
   color: white;
   text-align: center;
 }
-
 .header-wrapper {
   background-color: rgb(32, 43, 56);
   height: 100px;
   border-bottom: 2px solid white;
 }
-
 @media screen and (max-width: 660px) {
   .navigation {
     display: flex;
@@ -155,7 +148,6 @@ nav a:hover {
   color: white;
   margin-top: 20px;
 }
-
 .current {
   text-decoration: underline;
-}/*# sourceMappingURL=style.css.map */
+}
