@@ -4,7 +4,7 @@ const submitBtn = document.getElementById("submit-btn");
 const h1Element = document.getElementById("unsuccessful-message");
 
 async function postData(url) {
-  const skill = document.getElementById("add-skill").value;
+  const skill = document.getElementById("add-skill").value.trim();
   if (skill) {
     try {
       const response = await fetch(url, {
@@ -21,7 +21,6 @@ async function postData(url) {
 
         alert("Successfully added");
         window.location.replace("./index.html");
-        console.log(data);
       } else {
         alert("Error: " + response.status);
         h1Element.textContent = "Error: " + response.status;
