@@ -1,6 +1,6 @@
 const BASE_URL = "https://melon-potent-period.glitch.me/skills";
 
-// const BASE_URL = "https://zany-skitter-caper.glitch.me/skills";
+const BASE_URL_FOR_DELETE = "https://melon-potent-period.glitch.me/skill/";
 
 async function getSkillsData(url) {
   try {
@@ -39,7 +39,6 @@ function capitalizeEachFirstLetter(input) {
 }
 
 function drawSkillsTable(data) {
-  const table = document.querySelector("table");
   const tbody = document.querySelector("tbody");
 
   data.forEach((itemData) => {
@@ -53,7 +52,7 @@ function drawSkillsTable(data) {
     deleteBtn.textContent = "delete";
     deleteBtn.classList.add("delete-btn");
     deleteBtn.addEventListener("click", () => {
-      deleteItems("https://melon-potent-period.glitch.me/skill/" + itemData.id);
+      deleteItems(BASE_URL_FOR_DELETE + itemData.id);
     });
 
     const tr = document.createElement("tr");
@@ -70,11 +69,8 @@ async function deleteItems(url) {
     });
     if (response.ok) {
       alert("Skill deleted successfully");
-      //   setTimeout("location.reload(true);", 400);
-      location.reload(true);
-      //   newSkillsArray = await getSkillsData(BASE_URL);
 
-      //   drawSkillsTable(newSkillsArray);
+      location.reload(true);
     }
   } catch (error) {
     console.error(error);
