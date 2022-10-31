@@ -23,10 +23,11 @@ body {
   background-color: rgb(22, 31, 39);
   color: white;
   padding: 10px 20px;
+  text-align: center;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  width: 200px;
+  width: 25%;
   margin-bottom: 20px;
 }
 
@@ -85,10 +86,22 @@ tbody tr td {
 }
 
 input {
-  width: 300px;
+  width: 50%;
   padding: 5px 5px;
   background-color: rgb(22, 31, 39);
   border-radius: 5px;
   border: none;
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .main-container {
+    padding: 30px 30px;
+  }
+  input {
+    width: 60%;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
 }/*# sourceMappingURL=style.css.map */
