@@ -29,9 +29,10 @@ async function postData(url) {
     } catch (error) {
       alert(error);
       console.error(error);
+      h1Element.textContent = error.message;
     }
   } else {
-    h1Element.textContent = "Try again";
+    h1Element.textContent = "Please enter skill correctly.";
   }
 }
 
